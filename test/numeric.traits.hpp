@@ -19,11 +19,9 @@
 #include <limits>
 #include <cmath>
 
-namespace vectorfun {
+template <typename T> class RNT;
 
-template <typename T> class r_numeric_traits;
-
-template <> class r_numeric_traits<double> {
+template <> class RNT<double> {
 private:
   // to be conformant to R's NA value
   static double calculate_NA() {
@@ -55,7 +53,7 @@ public:
   static inline bool ISNA(double x) { return std::isnan(x); }
 };
 
-template <> class r_numeric_traits<int> {
+template <> class RNT<int> {
 public:
   static const bool has_NA = true;
 
@@ -66,4 +64,3 @@ public:
   }
 };
 
-} // namespace tslib

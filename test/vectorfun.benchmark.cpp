@@ -17,9 +17,9 @@ static void BM_class(benchmark::State &state) {
   std::vector<double> x1(N, 1.0);
   double res;
   while (state.KeepRunning()) {
-    res = applyStat<double, r_numeric_traits, Sum>(x.begin(), x.end());
-    res = applyStat<double, r_numeric_traits, Prod>(x1.begin(), x1.end());
-    res = applyStat<double, r_numeric_traits, Mean>(x.begin(), x.end());
+    res = applyStat<double, RNT, Sum>(x.begin(), x.end());
+    res = applyStat<double, RNT, Prod>(x1.begin(), x1.end());
+    res = applyStat<double, RNT, Mean>(x.begin(), x.end());
   }
 }
 */
@@ -30,9 +30,9 @@ static void BM_fun(benchmark::State &state) {
   std::vector<double> x1(N, 1.0);
   double res;
   while (state.KeepRunning()) {
-    res = Sum<double, r_numeric_traits>(x.begin(), x.end());
-    res = Prod<double, r_numeric_traits>(x1.begin(), x1.end());
-    res = Mean<double, r_numeric_traits>(x.begin(), x.end());
+    res = Sum<double, RNT>(x.begin(), x.end());
+    res = Prod<double, RNT>(x1.begin(), x1.end());
+    res = Mean<double, RNT>(x.begin(), x.end());
   }
 }
 
